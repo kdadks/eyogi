@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* SEO-optimized content styling */
+.seo-content h1,
+.seo-content h2,
+.seo-content h3 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.seo-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.seo-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.seo-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.seo-content p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.seo-content strong {
+  font-weight: 600;
+  color: #f97316;
+}
+
+.seo-content em {
+  font-style: italic;
+  color: #dc2626;
+}
+
+/* Custom styles */
+.container-max {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-padding {
+  padding: 4rem 0;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f97316, #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #f97316, #dc2626);
+}
+
+.card-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #f97316;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
