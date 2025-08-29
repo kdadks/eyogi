@@ -160,9 +160,9 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&h=400&fit=crop"
-                alt="Ancient wisdom meets modern learning"
-                className="rounded-2xl shadow-2xl"
+                src="/Images/Logo.png"
+                alt="eYogi Gurukul logo - Ancient wisdom meets modern learning"
+                className="rounded-2xl shadow-2xl object-contain bg-white p-6 logo-pop"
               />
             </div>
           </div>

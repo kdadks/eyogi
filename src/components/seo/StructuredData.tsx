@@ -100,7 +100,7 @@ export function generateOrganizationSchema(): OrganizationSchema {
     name: "eYogi Gurukul",
     description: "Premier online platform for authentic Hindu education, Vedic learning, and Sanatan Dharma studies. Learn Sanskrit, Hindu philosophy, mantras, yoga, and traditional Hindu culture through expert-led courses.",
     url: "https://eyogi-gurukul.vercel.app",
-    logo: "https://eyogi-gurukul.vercel.app/logo.png",
+  logo: "/Images/Logo.png",
     sameAs: [
       "https://facebook.com/eyogigurukul",
       "https://twitter.com/eyogigurukul",

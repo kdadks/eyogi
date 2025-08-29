@@ -59,9 +59,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="h-8 w-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">eY</span>
-              </div>
+              <img src="/Images/Logo.png" alt="eYogi Gurukul logo" className="h-10 w-10 object-contain rounded" />
               <span className="text-xl font-bold text-gray-900">eYogi Gurukul</span>
             </Link>
           </div>

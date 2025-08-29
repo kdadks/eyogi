@@ -56,9 +56,9 @@ export const CommonSchemas = {
     "publisher": {
       "@type": "Organization",
       "name": "eYogi Gurukul",
-      "logo": {
+        "logo": {
         "@type": "ImageObject",
-        "url": "https://eyogi-gurukul.vercel.app/logo.png"
+        "url": "/Images/Logo.png"
       }
     },
     "datePublished": article.datePublished,

@@ -5,6 +5,7 @@ import { generateOrganizationSchema, generateWebsiteSchema } from '../components
 import { Button } from '../components/ui/Button'
 import { Card, CardContent } from '../components/ui/Card'
 import { Badge } from '../components/ui/Badge'
+import RollingText from '../components/ui/RollingText'
 import { 
   AcademicCapIcon, 
   BookOpenIcon, 
@@ -144,6 +145,9 @@ export default function HomePage() {
         structuredData={structuredData}
       />
     <div className="min-h-screen">
+      {/* Rolling Text Banner */}
+      <RollingText text="🕉️ Spirituality and Science of Hinduism University - Discover Ancient Wisdom Through Modern Learning 🕉️" />
+      
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-orange-50 to-red-50 overflow-hidden">
         <div className="absolute inset-0 bg-white/50"></div>
@@ -193,11 +197,11 @@ export default function HomePage() {
             </div>
 
             <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl bg-white p-4">
                 <img
-                  src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&h=600&fit=crop"
-                  alt="Hindu Education - Ancient Vedic wisdom meets modern online learning at eYogi Gurukul"
-                  className="w-full h-full object-cover"
+                  src="/Images/Logo.png"
+                  alt="eYogi Gurukul logo"
+                  className="w-full h-full object-contain logo-pop"
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4">
