@@ -2,7 +2,7 @@
 
 'use client'
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { cn } from '@/lib/utils'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -32,15 +32,97 @@ export function Button({
   }
   
   const sizes = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-sm',
-    lg: 'px-6 py-3 text-base'
+    sm: 'px-3 py-1.5 text-sm min-h-[40px]',
+    md: 'px-4 py-2 text-sm min-h-[44px]',
+    lg: 'px-6 py-3 text-base min-h-[48px]'
+  }
+  // ref for ripple creation
+  const ref = useRef<HTMLButtonElement | null>(null)
+
+  // preserve any external onMouseDown and onKeyDown passed via props
+  const externalOnMouseDown = props.onMouseDown as React.MouseEventHandler<HTMLButtonElement> | undefined
+  const externalOnKeyDown = props.onKeyDown as React.KeyboardEventHandler<HTMLButtonElement> | undefined
+
+  // ripple colors per variant
+  const rippleColors: Record<string, string> = {
+    primary: 'rgba(255,165,0,0.28)', // orange
+    secondary: 'rgba(59,130,246,0.20)', // blue-500
+    outline: 'rgba(99,102,241,0.08)', // subtle
+    ghost: 'rgba(0,0,0,0.08)',
+    danger: 'rgba(239,68,68,0.22)'
+  }
+
+  const rippleDuration = 350 // ms (shorter)
+  const rippleSizeFactor = 0.5 // smaller base size
+
+  const createRipple = (x: number, y: number) => {
+    const btn = ref.current
+    if (!btn) return
+
+    const rect = btn.getBoundingClientRect()
+    const size = Math.max(rect.width, rect.height) * rippleSizeFactor
+    const ripple = document.createElement('span')
+    ripple.style.position = 'absolute'
+    ripple.style.borderRadius = '50%'
+    ripple.style.pointerEvents = 'none'
+    ripple.style.width = ripple.style.height = `${size}px`
+    ripple.style.left = `${x - rect.left - size / 2}px`
+    ripple.style.top = `${y - rect.top - size / 2}px`
+    const color = rippleColors[variant] || 'rgba(255,255,255,0.28)'
+    ripple.style.background = color
+    ripple.style.transform = 'scale(0)'
+    ripple.style.opacity = '1'
+    ripple.style.transition = `transform ${rippleDuration}ms cubic-bezier(.22,.9,.31,1), opacity ${rippleDuration}ms ease-out`
+    ripple.style.zIndex = '10'
+
+    btn.appendChild(ripple)
+
+    // trigger animation
+    requestAnimationFrame(() => {
+      ripple.style.transform = 'scale(3)'
+      ripple.style.opacity = '0'
+    })
+
+    // cleanup after animation
+    const remove = () => {
+      try { ripple.remove() } catch (err) { /* ignore */ }
+    }
+    ripple.addEventListener('transitionend', remove)
+    // fallback
+    setTimeout(remove, rippleDuration + 50)
+  }
+
+  const handleMouseDown: React.MouseEventHandler<HTMLButtonElement> = (e) => {
+    // run external handler first
+    externalOnMouseDown?.(e)
+    createRipple(e.clientX, e.clientY)
+  }
+
+  const handleKeyDown: React.KeyboardEventHandler<HTMLButtonElement> = (e) => {
+    // run external handler first
+    externalOnKeyDown?.(e)
+    // trigger ripple for Enter or Space
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      // center of button
+      const btn = ref.current
+      if (!btn) return
+      const rect = btn.getBoundingClientRect()
+      const cx = rect.left + rect.width / 2
+      const cy = rect.top + rect.height / 2
+      createRipple(cx, cy)
+    }
   }
 
   return (
     <button
+      ref={ref}
+      onMouseDown={handleMouseDown}
+      onKeyDown={handleKeyDown}
       className={cn(
-        baseClasses,
+        // ensure overflow hidden for ripple and relative positioning
+        baseClasses + ' relative overflow-hidden',
+        // stronger hover/glow and active press scale for glossy feel
+        'hover:shadow-[0_20px_40px_rgba(255,165,0,0.18)] active:scale-[0.99] transition-transform',
         variants[variant],
         sizes[size],
         className

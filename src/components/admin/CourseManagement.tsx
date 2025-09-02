@@ -161,7 +161,11 @@ export default function CourseManagement() {
         await updateCourse(editingCourse.id, formData)
         toast.success('Course updated successfully')
       } else {
-        await createCourse(formData)
+        await createCourse({ 
+          ...formData, 
+          syllabus: [], 
+          is_active: true 
+        })
         toast.success('Course created successfully')
       }
       
@@ -368,7 +372,7 @@ export default function CourseManagement() {
                   <select
                     value={formData.gurukul_id}
                     onChange={(e) => setFormData(prev => ({ ...prev, gurukul_id: e.target.value }))}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                     required
                   >
                     <option value="">Select Gurukul</option>
@@ -402,7 +406,7 @@ export default function CourseManagement() {
                   value={formData.description}
                   onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
                   rows={3}
-                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   required
                 />
               </div>
@@ -413,7 +417,7 @@ export default function CourseManagement() {
                   <select
                     value={formData.level}
                     onChange={(e) => setFormData(prev => ({ ...prev, level: e.target.value as any }))}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   >
                     <option value="elementary">Elementary</option>
                     <option value="basic">Basic</option>
@@ -479,7 +483,7 @@ export default function CourseManagement() {
                   <select
                     value={formData.delivery_method}
                     onChange={(e) => setFormData(prev => ({ ...prev, delivery_method: e.target.value as any }))}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   >
                     <option value="remote">Remote</option>
                     <option value="physical">Physical</option>
@@ -492,7 +496,7 @@ export default function CourseManagement() {
                   <select
                     value={formData.teacher_id}
                     onChange={(e) => setFormData(prev => ({ ...prev, teacher_id: e.target.value }))}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   >
                     <option value="">Unassigned</option>
                     {teachers.map(teacher => (
@@ -510,7 +514,7 @@ export default function CourseManagement() {
                   value={formData.entry_requirements}
                   onChange={(e) => setFormData(prev => ({ ...prev, entry_requirements: e.target.value }))}
                   rows={2}
-                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   placeholder="Optional entry requirements..."
                 />
               </div>
@@ -523,7 +527,7 @@ export default function CourseManagement() {
                     value={learningOutcomeInput}
                     onChange={(e) => setLearningOutcomeInput(e.target.value)}
                     placeholder="Add learning outcome..."
-                    className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                     onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addLearningOutcome())}
                   />
                   <Button type="button" onClick={addLearningOutcome}>
@@ -578,7 +582,7 @@ export default function CourseManagement() {
                   placeholder="Search courses..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-md text-sm focus:ring-orange-500 focus:border-orange-500"
+                  className="pl-10 pr-4 py-3 border border-gray-300 rounded-md text-base focus:ring-orange-500 focus:border-orange-500"
                 />
               </div>
 
@@ -586,7 +590,7 @@ export default function CourseManagement() {
               <select
                 value={gurukulFilter}
                 onChange={(e) => setGurukulFilter(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-orange-500 focus:border-orange-500"
+                className="px-4 py-3 border border-gray-300 rounded-md text-base focus:ring-orange-500 focus:border-orange-500"
               >
                 <option value="all">All Gurukuls</option>
                 {gurukuls.map(gurukul => (
@@ -600,7 +604,7 @@ export default function CourseManagement() {
               <select
                 value={levelFilter}
                 onChange={(e) => setLevelFilter(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-orange-500 focus:border-orange-500"
+                className="px-4 py-3 border border-gray-300 rounded-md text-base focus:ring-orange-500 focus:border-orange-500"
               >
                 <option value="all">All Levels</option>
                 <option value="elementary">Elementary</option>
@@ -613,7 +617,7 @@ export default function CourseManagement() {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-orange-500 focus:border-orange-500"
+                className="px-4 py-3 border border-gray-300 rounded-md text-base focus:ring-orange-500 focus:border-orange-500"
               >
                 <option value="all">All Status</option>
                 <option value="active">Active</option>

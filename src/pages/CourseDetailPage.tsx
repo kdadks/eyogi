@@ -123,7 +123,7 @@ export default function CourseDetailPage() {
           ])
         ] : []}
       />
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 page-with-header">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-orange-50 to-red-50">
         <div className="container-max section-padding">

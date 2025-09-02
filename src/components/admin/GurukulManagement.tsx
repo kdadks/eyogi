@@ -126,7 +126,7 @@ export default function GurukulManagement() {
         await updateGurukul(editingGurukul.id, formData)
         toast.success('Gurukul updated successfully')
       } else {
-        await createGurukul(formData)
+        await createGurukul({ ...formData, is_active: true })
         toast.success('Gurukul created successfully')
       }
       
@@ -261,7 +261,7 @@ export default function GurukulManagement() {
                   value={formData.description}
                   onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
                   rows={3}
-                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                  className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   required
                 />
               </div>

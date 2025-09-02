@@ -263,7 +263,7 @@ export default function TeacherDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center page-with-header">
         <div className="text-center">
           <div className="spinner w-12 h-12 mx-auto mb-4 border-4 border-blue-200 border-t-blue-600"></div>
           <p className="text-gray-600 text-lg">Loading your teaching dashboard...</p>
@@ -273,7 +273,7 @@ export default function TeacherDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 page-with-header">
       {/* Modern Header */}
       <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-40">
         <div className="container-max py-6">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import ScrollLink from '../components/ui/ScrollLink'
 import SEOHead from '../components/seo/SEOHead'
 import { generateBreadcrumbSchema } from '../components/seo/StructuredData'
 import { Card, CardContent } from '@/components/ui/Card'
@@ -95,8 +96,8 @@ export default function GurukulPage() {
           }
         ]}
       />
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-gray-50 page-with-header">
+      {/* Hero Section (with Quick Navigation) */}
       <section className="bg-gradient-to-r from-orange-50 to-red-50">
         <div className="container-max section-padding">
           <div className="text-center max-w-4xl mx-auto">
@@ -120,6 +121,25 @@ export default function GurukulPage() {
               <div className="flex items-center space-x-2">
                 <UserGroupIcon className="h-5 w-5 text-orange-500" />
                 <span>1,950+ Students</span>
+              </div>
+            </div>
+
+            {/* Quick Navigation (inside hero) */}
+            <div className="mt-8">
+              <p className="text-sm text-gray-700 mb-3"></p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {gurukuls.map((gurukul) => (
+                  <ScrollLink key={gurukul.id} to={`/gurukuls/${gurukul.slug}`}>
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      aria-label={`Explore ${gurukul.name} Gurukul`}
+                      className="shadow-sm"
+                    >
+                      {gurukul.name}
+                    </Button>
+                  </ScrollLink>
+                ))}
               </div>
             </div>
           </div>
@@ -158,12 +178,12 @@ export default function GurukulPage() {
                     </div>
                   </div>
                   
-                  <Link to={`/gurukuls/${gurukul.slug}`}>
+                  <ScrollLink to={`/gurukuls/${gurukul.slug}`}>
                     <Button className="w-full">
                       Explore Gurukul
                       <ArrowRightIcon className="ml-2 h-4 w-4" />
                     </Button>
-                  </Link>
+                  </ScrollLink>
                 </CardContent>
               </Card>
             ))}

@@ -76,7 +76,7 @@ export default function SignUpPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 page-with-header">
       <div className="max-w-2xl w-full space-y-8">
         <div className="text-center">
           <div className="flex justify-center">
@@ -129,7 +129,7 @@ export default function SignUpPage() {
                   </label>
                   <select
                     {...register('role')}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   >
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>

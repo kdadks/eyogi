@@ -103,7 +103,7 @@ export default function AboutPage() {
           }
         ]}
       />
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 page-with-header">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-orange-50 to-red-50">
         <div className="container-max section-padding">
@@ -309,7 +309,7 @@ export default function AboutPage() {
               </Button>
             </Link>
             <Link to="/gurukuls">
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-orange-600">
+              <Button variant="primary" size="lg">
                 Explore Gurukuls
               </Button>
             </Link>

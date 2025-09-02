@@ -110,7 +110,7 @@ export default function CoursesPage() {
           }
         ]}
       />
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 page-with-header">
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="container-max section-padding">
@@ -135,7 +135,7 @@ export default function CoursesPage() {
                     placeholder="Search courses..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   />
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function CoursesPage() {
               <select
                 value={selectedGurukul}
                 onChange={(e) => setSelectedGurukul(e.target.value)}
-                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
               >
                 <option value="">All Gurukuls</option>
                 {gurukuls.map(gurukul => (
@@ -156,7 +156,7 @@ export default function CoursesPage() {
               <select
                 value={selectedLevel}
                 onChange={(e) => setSelectedLevel(e.target.value)}
-                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
               >
                 <option value="">All Levels</option>
                 {levels.map(level => (
@@ -173,7 +173,7 @@ export default function CoursesPage() {
                 onChange={(e) => setAgeGroup(e.target.value)}
                 min="4"
                 max="100"
-                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
               />
             </div>
 

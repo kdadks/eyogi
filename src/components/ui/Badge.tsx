@@ -18,7 +18,7 @@ export function Badge({
   className, 
   children 
 }: BadgeProps) {
-  const baseClasses = 'inline-flex items-center font-medium rounded-full'
+  const baseClasses = 'inline-flex items-center font-medium rounded-full break-words text-center'
   
   const variants = {
     default: 'bg-gray-100 text-gray-800',
@@ -30,7 +30,7 @@ export function Badge({
   
   const sizes = {
     sm: 'px-2 py-0.5 text-xs',
-    md: 'px-2.5 py-1 text-sm'
+    md: 'px-2.5 py-1 text-sm sm:px-3 sm:py-1.5 sm:text-base max-w-xs sm:max-w-none'
   }
 
   return (

@@ -139,7 +139,7 @@ export default function ContactPage() {
           }
         ]}
       />
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 page-with-header">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-orange-50 to-red-50">
         <div className="container-max section-padding">
@@ -213,7 +213,7 @@ export default function ContactPage() {
                       </label>
                       <select
                         {...register('type')}
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                       >
                         <option value="general">General Inquiry</option>
                         <option value="course">Course Information</option>
@@ -238,7 +238,7 @@ export default function ContactPage() {
                       <textarea
                         {...register('message')}
                         rows={5}
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                         placeholder="Tell us how we can help you..."
                       />
                       {errors.message && (

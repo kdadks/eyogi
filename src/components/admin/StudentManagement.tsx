@@ -508,7 +508,7 @@ export default function StudentManagement() {
                   placeholder="Search students..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                  className="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                 />
               </div>
             </div>
@@ -516,7 +516,7 @@ export default function StudentManagement() {
             <select
               value={gurukulFilter}
               onChange={(e) => setGurukulFilter(e.target.value)}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
             >
               <option value="all">All Gurukuls</option>
               {gurukuls.map(gurukul => (
@@ -529,7 +529,7 @@ export default function StudentManagement() {
             <select
               value={courseFilter}
               onChange={(e) => setCourseFilter(e.target.value)}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
             >
               <option value="all">All Courses</option>
               {courses.map(course => (
@@ -542,7 +542,7 @@ export default function StudentManagement() {
             <select
               value={ageGroupFilter}
               onChange={(e) => setAgeGroupFilter(e.target.value)}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
             >
               <option value="all">All Ages</option>
               {ageGroups.map(group => (
@@ -555,7 +555,7 @@ export default function StudentManagement() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
             >
               <option value="all">All Status</option>
               <option value="pending">Pending</option>
@@ -787,7 +787,7 @@ export default function StudentManagement() {
                     <select
                       value={studentFormData.role}
                       onChange={(e) => setStudentFormData(prev => ({ ...prev, role: e.target.value as any }))}
-                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                     >
                       <option value="student">Student</option>
                       <option value="teacher">Teacher</option>
@@ -802,7 +802,7 @@ export default function StudentManagement() {
                     value={studentFormData.address}
                     onChange={(e) => setStudentFormData(prev => ({ ...prev, address: e.target.value }))}
                     rows={2}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                   />
                 </div>
 
@@ -903,7 +903,7 @@ export default function StudentManagement() {
                     value={communicationData.message}
                     onChange={(e) => setCommunicationData(prev => ({ ...prev, message: e.target.value }))}
                     rows={5}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                     required
                   />
                 </div>

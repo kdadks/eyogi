@@ -186,7 +186,7 @@ export default function StudentDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center page-with-header">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600 text-lg">Loading your learning dashboard...</p>
@@ -196,7 +196,7 @@ export default function StudentDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex page-with-header">
       {/* Sidebar */}
       <div className={`${sidebarOpen ? 'w-80' : 'w-20'} bg-white shadow-xl transition-all duration-300 flex flex-col relative z-30`}>
         {/* Student Profile Header */}
@@ -565,14 +565,14 @@ export default function StudentDashboard() {
                           placeholder="Search courses..."
                           value={searchTerm}
                           onChange={(e) => setSearchTerm(e.target.value)}
-                          className="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                          className="pl-10 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                         />
                       </div>
 
                       <select
                         value={statusFilter}
                         onChange={(e) => setStatusFilter(e.target.value)}
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                       >
                         <option value="all">All Status</option>
                         <option value="pending">Pending</option>
@@ -584,7 +584,7 @@ export default function StudentDashboard() {
                       <select
                         value={gurukulFilter}
                         onChange={(e) => setGurukulFilter(e.target.value)}
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                       >
                         <option value="all">All Gurukuls</option>
                         <option value="gurukul-1">Hinduism Gurukul</option>

@@ -650,7 +650,7 @@ export default function ContentManagement() {
                       <select
                         value={pageFormData.type}
                         onChange={(e) => setPageFormData(prev => ({ ...prev, type: e.target.value as any }))}
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                       >
                         <option value="page">Page</option>
                         <option value="blog">Blog Post</option>
@@ -663,7 +663,7 @@ export default function ContentManagement() {
                       <select
                         value={pageFormData.status}
                         onChange={(e) => setPageFormData(prev => ({ ...prev, status: e.target.value as any }))}
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                       >
                         <option value="draft">Draft</option>
                         <option value="published">Published</option>
@@ -678,7 +678,7 @@ export default function ContentManagement() {
                       value={pageFormData.meta_description}
                       onChange={(e) => setPageFormData(prev => ({ ...prev, meta_description: e.target.value }))}
                       rows={2}
-                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                       placeholder="Brief description for search engines..."
                     />
                   </div>
@@ -689,7 +689,7 @@ export default function ContentManagement() {
                       value={pageFormData.content}
                       onChange={(e) => setPageFormData(prev => ({ ...prev, content: e.target.value }))}
                       rows={10}
-                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                      className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                       placeholder="Page content (HTML supported)..."
                       required
                     />
@@ -897,7 +897,7 @@ export default function ContentManagement() {
                       <select
                         value={menuFormData.icon}
                         onChange={(e) => setMenuFormData(prev => ({ ...prev, icon: e.target.value }))}
-                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 text-base px-4 py-3"
                       >
                         <option value="">No Icon</option>
                         {iconOptions.map(icon => (

@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Ensure scroll behavior works properly */
+html {
+  scroll-behavior: auto !important;
+}
+
 /* SEO-optimized content styling */
 .seo-content h1,
 .seo-content h2,
@@ -45,8 +50,44 @@
   padding: 0 1rem;
 }
 
+/* Enhanced mobile responsiveness */
+@media (max-width: 640px) {
+  .container-max {
+    padding: 0 0.75rem;
+  }
+  
+  /* Hero section mobile improvements */
+  .section-padding {
+    padding: 2rem 0;
+  }
+  
+  .section-padding-first {
+    padding: 3rem 0 2rem 0;
+  }
+  
+  /* Mobile button improvements */
+  .mobile-button-spacing {
+    gap: 0.75rem;
+  }
+}
+
 .section-padding {
-  padding: 4rem 0;
+  padding: 3rem 0;
+}
+
+.section-padding-first {
+  padding: 5rem 0 3rem 0;
+}
+
+/* Mobile-specific section padding */
+@media (max-width: 640px) {
+  .section-padding {
+    padding: 2rem 0;
+  }
+  
+  .section-padding-first {
+    padding: 3rem 0 2rem 0;
+  }
 }
 
 .gradient-text {
@@ -106,6 +147,11 @@
   position: relative;
 }
 
+/* When rolling text is the first element on a page with fixed header */
+.rolling-text-container.first-element {
+  margin-top: 5rem; /* Account for fixed header height (80px) */
+}
+
 .rolling-text {
   display: inline-flex;
   animation: roll 20s linear infinite;
@@ -160,5 +206,199 @@
   .logo-pop {
     animation: none;
     transition: none;
+  }
+}
+
+/* Glass card utility with subtle border, blur and sheen */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.32), rgba(255,255,255,0.08));
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sheen overlay that moves across the card */
+.card-sheen {
+  position: absolute;
+  left: -90%;
+  top: -20%;
+  width: 80%;
+  height: 140%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0.12) 60%, rgba(255,255,255,0) 100%);
+  transform: rotate(18deg);
+  opacity: 0.6;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  animation: sheen 1600ms linear infinite;
+}
+
+@keyframes sheen {
+  0% { transform: translateX(-220%) rotate(18deg); }
+  100% { transform: translateX(260%) rotate(18deg); }
+}
+
+/* Reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .card-sheen { animation: none; opacity: 0.35; }
+}
+
+/* Premium Header Styles */
+.header-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-glass.scrolled {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Ensure content is not hidden behind fixed header */
+body {
+  scroll-padding-top: 5rem; /* 80px header height */
+}
+
+/* For pages with immediate content */
+.page-content {
+  padding-top: 2rem;
+}
+
+/* Page content that needs to start below fixed header */
+.page-with-header {
+  padding-top: 5rem; /* 80px header height */
+}
+
+/* Navigation hover effects */
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f97316, #dc2626);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-item:hover::before {
+  width: 100%;
+}
+
+/* User menu dropdown animation */
+.user-dropdown {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  animation: fadeInUp 0.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile menu slide animation */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-menu.open {
+  max-height: 500px;
+}
+
+/* Enhanced mobile touch targets */
+@media (max-width: 768px) {
+  .mobile-menu a,
+  .mobile-menu button {
+    min-height: 44px; /* iOS recommended touch target */
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Improve button touch targets on mobile */
+  button, .btn, a[role="button"] {
+    min-height: 44px;
+  }
+  
+  /* Better mobile typography */
+  body {
+    font-size: 16px; /* Prevent zoom on iOS inputs */
+  }
+  
+  input, textarea, select {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Badge mobile improvements */
+  .hero-badge {
+    max-width: calc(100vw - 48px);
+    text-align: center;
+    line-height: 1.3;
+    white-space: normal;
+  }
+  
+  /* Ensure badges don't overflow on mobile */
+  .badge-container {
+    max-width: calc(100vw - 32px);
+    overflow: hidden;
+  }
+  
+  /* Hero section certificate card mobile fix */
+  .hero-certificate-card {
+    max-width: calc(100vw - 32px);
+    left: 8px !important;
+  }
+  
+  /* Prevent hero section overflow */
+  .hero-section {
+    overflow-x: hidden;
+  }
+  
+  /* ChatBot mobile improvements */
+  .chatbot-container {
+    max-height: calc(100vh - 64px - 16px); /* Mobile: viewport - header - bottom margin */
+  }
+  
+  .chatbot-input {
+    font-size: 16px; /* Prevent iOS zoom */
+  }
+  
+  .chatbot-message {
+    max-width: 90%;
+  }
+  
+  .chatbot-quick-button {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Adjust chatbot height for larger screens */
+@media (min-width: 640px) {
+  .chatbot-container {
+    max-height: calc(100vh - 80px - 16px); /* SM+: viewport - larger header - bottom margin */
+  }
+}
+
+/* Desktop chatbot - reset to auto sizing */
+@media (min-width: 768px) {
+  .chatbot-container {
+    max-height: none;
   }
 }
