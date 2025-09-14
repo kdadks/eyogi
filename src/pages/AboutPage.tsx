@@ -160,7 +160,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <img
-                src="/Images/Logo.png"
+                src="/ssh-app/Images/Logo.png"
                 alt="eYogi Gurukul logo - Ancient wisdom meets modern learning"
                 className="rounded-2xl shadow-2xl object-contain bg-white p-6 logo-pop"
               />

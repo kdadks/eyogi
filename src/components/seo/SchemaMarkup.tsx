@@ -58,7 +58,7 @@ export const CommonSchemas = {
       "name": "eYogi Gurukul",
         "logo": {
         "@type": "ImageObject",
-        "url": "/Images/Logo.png"
+        "url": "/ssh-app/Images/Logo.png"
       }
     },
     "datePublished": article.datePublished,

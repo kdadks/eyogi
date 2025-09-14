@@ -15,8 +15,8 @@ if (fs.existsSync(indexPath)) {
   // Fix icon path
   content = content.replace('href="/vite.svg"', 'href="/ssh-app/vite.svg"');
   
-  // Fix logo path in structured data
-  content = content.replace('"logo": "/Images/Logo.png"', '"logo": "/ssh-app/Images/Logo.png"');
+  // Fix logo path in structured data (this line is no longer needed since we fixed it in components)
+  // content = content.replace('"logo": "/Images/Logo.png"', '"logo": "/ssh-app/Images/Logo.png"');
   
   fs.writeFileSync(indexPath, content);
   console.log('✅ Fixed asset paths in index.html');

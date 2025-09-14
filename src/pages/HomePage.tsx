@@ -218,7 +218,7 @@ export default function HomePage() {
                 {/* Glossy Shine Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-2xl"></div>
                 <img
-                  src="/Images/Logo.png"
+                  src="/ssh-app/Images/Logo.png"
                   alt="eYogi Gurukul logo"
                   className="w-full h-full object-contain logo-pop relative z-10"
                 />
