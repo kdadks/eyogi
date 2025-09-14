@@ -42,6 +42,10 @@ export default function Header() {
     { name: 'Contact', href: '/contact' },
   ]
 
+  const externalLinks = [
+    { name: '← Back to Main Site', href: window.location.origin, external: false },
+  ]
+
   const handleSignOut = async () => {
     try {
       await signOut()
@@ -118,6 +122,16 @@ export default function Header() {
                 <span className="relative z-10">{item.name}</span>
                 <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
               </ScrollLink>
+            ))}
+            {/* External Links */}
+            {externalLinks.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="relative px-4 py-2 text-sm font-semibold text-blue-600 hover:text-blue-800 transition-all duration-300 rounded-lg hover:bg-blue-50 group nav-item border border-blue-200 hover:border-blue-300"
+              >
+                <span className="relative z-10">{item.name}</span>
+              </a>
             ))}
           </div>
 
@@ -234,6 +248,18 @@ export default function Header() {
                 >
                   {item.name}
                 </ScrollLink>
+              ))}
+              {/* External Links */}
+              {externalLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block px-4 py-4 text-base font-semibold text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-all duration-300 border border-blue-200 hover:border-blue-300 mt-2"
+                  style={{ minHeight: '44px' }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
               ))}
               {user && (
                 <ScrollLink

@@ -12,7 +12,7 @@ initializeDefaultData()
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <SEOProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/ssh-app">
         <App />
       </BrowserRouter>
     </SEOProvider>

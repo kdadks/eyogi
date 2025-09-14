@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
+import ScrollToTop from './components/layout/ScrollToTop'
 import AuthProvider from './components/providers/AuthProvider'
 import HomePage from './pages/HomePage'
 import CoursesPage from './pages/CoursesPage'
@@ -27,7 +28,8 @@ function App() {
     <AuthProvider>
       <div className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1">
+        <main className="flex-1 min-h-screen">
+          <ScrollToTop />
           <Suspense fallback={
             <div className="flex items-center justify-center min-h-[50vh]">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
